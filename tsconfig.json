@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "typings"],
+    "module": "ESNext",
+    "target": "esnext",
+    "lib": ["ESNext", "DOM"],
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "outDir": "./build",
+    "newLine": "lf",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
+    "suppressExcessPropertyErrors": false,
+    "strictNullChecks": false,
+    "allowJs": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "strict": true,
+  },
+  "include": [
+    "./typings",
+    "./src"
+  ],
+  "exclude": [
+    "./dist",
+  ]
+}

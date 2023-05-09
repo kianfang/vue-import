@@ -22,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/kianfang/vue-import/issues"
   },
-  "homepage": "https://github.com/kianfang/vue-import#readme"
+  "homepage": "https://github.com/kianfang/vue-import#readme",
+  "devDependencies": {
+    "@babel/types": "^7.21.5",
+    "del": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-util": "^3.0.8",
+    "lodash": "^4.17.21",
+    "vue": "^3.2.47"
+  }
 }
