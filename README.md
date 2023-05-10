@@ -1,5 +1,8 @@
 # vue-import
 
+在浏览器环境下导入vue组件，即SFC (*.vue) 文件。  
+如果你不想维护`package.json`以及应用 `webpack`等打包工具，那么`vue-import`将能助你一臂之力。
+
 [![NPM Version](https://img.shields.io/npm/v/vue-import.svg)](https://www.npmjs.com/package/vue-import)
 [![Licence](https://img.shields.io/npm/l/vue-import.svg)](https://www.npmjs.com/package/vue-import)
 [![Minified Size](https://img.shields.io/bundlephobia/min/vue-import)](https://www.npmjs.com/package/vue-import?file=/dist/vue-import.esm-browser.prod.js)
@@ -149,7 +152,7 @@ export default {
 ```
 
 - `component/welcome.vue`  
-支持多个 `<style></style>` 嵌入方式，组件卸载时，嵌入的样式也会卸载掉
+支持多组 `<style></style>` 嵌入方式，组件卸载时，嵌入的样式也会卸载掉
 
 ```html
 <template>

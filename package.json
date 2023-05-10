@@ -1,6 +1,6 @@
 {
   "name": "vue-import",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vue SFC loader of es module in browser",
   "main": "./dist/vue-import.esm-browser.js",
   "scripts": {
@@ -38,6 +38,7 @@
   },
   "files": [
     "dist",
+    "example",
     "README.md"
   ]
 }
