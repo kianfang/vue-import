@@ -6,6 +6,7 @@
 [![NPM Version](https://img.shields.io/npm/v/vue-import.svg)](https://www.npmjs.com/package/vue-import)
 [![Licence](https://img.shields.io/npm/l/vue-import.svg)](https://www.npmjs.com/package/vue-import)
 [![Minified Size](https://img.shields.io/bundlephobia/min/vue-import)](https://www.npmjs.com/package/vue-import?file=/dist/vue-import.esm-browser.prod.js)
+[![Build and Publish](https://github.com/kianfang/vue-import/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/kianfang/vue-import/actions/workflows/npm-publish.yml)
 
 ## CDN
 
@@ -21,7 +22,7 @@ import vueImport from 'https://unpkg.com/vue-import/dist/vue-import.esm-browser.
 import vueImport from 'https://unpkg.com/vue-import/dist/vue-import.esm-browser.prod.js';
 ```
 
-## 示例
+## [Examples](https://unpkg.com/vue-import/example/index.html)
 
 - `index.html`  
 
