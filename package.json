@@ -1,8 +1,8 @@
 {
   "name": "vue-import",
-  "version": "0.1.0",
-  "description": "vue loader of es module in browser",
-  "main": "index.js",
+  "version": "0.1.1",
+  "description": "Vue SFC loader of es module in browser",
+  "main": "./dist/vue-import.esm-browser.js",
   "scripts": {
     "build": "gulp"
   },
@@ -12,6 +12,7 @@
   },
   "keywords": [
     "vue",
+    "sfc",
     "loader",
     "import",
     "browser",

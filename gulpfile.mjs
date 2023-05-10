@@ -22,7 +22,7 @@ function compiler() {
     .pipe(rename({ basename: `${pkg.name}.esm-browser` }))
     .pipe(gulp.dest('dist'))
     .pipe(uglify({ output: { comments: 'some' }}))
-    .pipe(rename({ extname: '.min.js' }))
+    .pipe(rename({ extname: '.prod.js' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'));
 }
