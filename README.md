@@ -1,5 +1,9 @@
 # vue-import
 
+[![NPM Version](https://img.shields.io/npm/v/vue-import.svg)](https://www.npmjs.com/package/vue-import)
+[![Licence](https://img.shields.io/npm/l/vue-import.svg)](https://www.npmjs.com/package/vue-import)
+[![Minified Size](https://img.shields.io/bundlephobia/min/vue-import)](https://www.npmjs.com/package/vue-import?file=/dist/vue-import.esm-browser.prod.js)
+
 ## CDN
 
 ESM导入:
