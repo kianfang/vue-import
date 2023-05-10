@@ -11,7 +11,7 @@ import { ComponentOptions } from 'vue';
  * @param {ComponentOptions} props 
  * @returns {ComponentOptions}
  */
-export default async function (url: string, props: ComponentOptions = {}) {
+export default async function (url: string, props: ComponentOptions = {}): Promise<ComponentOptions> {
   const res = await fetch(url)
   const sfc = await res.text();
 
