@@ -25,7 +25,8 @@ export default async function (url: string, props: ComponentOptions = {}): Promi
   // 1、es module无法从外部js直接获取导出模块
   // 2、import()只支持url导入，这里使用blob url解决
   if (script) {
-    const blobUrl = URL.createObjectURL(new Blob([script], { type: 'application/javascript' })); 
+    const blob = new Blob([script], { type: 'application/javascript' });
+    const blobUrl = URL.createObjectURL(blob); 
     const importModule = await import(blobUrl);
     sfcProps = importModule.default;
   }
@@ -39,14 +40,14 @@ export default async function (url: string, props: ComponentOptions = {}): Promi
         document.head.appendChild(style);
       });
 
-      // 由于beforeMount方法重写，这里手动调用
+      // beforeMount方法重写，这里手动调用
       sfcProps.beforeMount?.call(this);
       beforeMount?.call(this);
     },
     beforeUnmount() {
       styleList.forEach((style) => style.remove());
 
-      // 由于beforeUnmount方法重写，这里手动调用
+      // beforeUnmount方法重写，这里手动调用
       sfcProps.beforeUnmount?.call(this);
       beforeUnmount?.call(this);
     },

@@ -1,12 +1,12 @@
 # vue-import
 
-在浏览器环境下导入vue组件，即SFC (*.vue) 文件。  
-如果你不想维护`package.json`以及应用 `webpack`等打包工具，那么`vue-import`将能助你一臂之力。
-
 [![NPM Version](https://img.shields.io/npm/v/vue-import.svg)](https://www.npmjs.com/package/vue-import)
 [![Licence](https://img.shields.io/npm/l/vue-import.svg)](https://www.npmjs.com/package/vue-import)
 [![Minified Size](https://img.shields.io/bundlephobia/min/vue-import)](https://www.npmjs.com/package/vue-import?file=/dist/vue-import.esm-browser.prod.js)
 [![Build and Publish](https://github.com/kianfang/vue-import/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/kianfang/vue-import/actions/workflows/npm-publish.yml)
+
+在浏览器环境下导入vue组件，即[SFC](https://vuejs.org/guide/scaling-up/sfc.html) (*.vue) 文件。  
+如果你不想维护`package.json`以及应用 `webpack`等打包工具，那么`vue-import`将能助你一臂之力。
 
 ## CDN
 

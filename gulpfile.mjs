@@ -30,4 +30,7 @@ function compiler() {
 export const build = gulp.series(clean, compiler);
 export { clean, compiler };
 
-export default build;
+export default () => {
+  build();
+  gulp.watch(['src/**/*'], build)
+};
