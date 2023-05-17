@@ -3,10 +3,12 @@
   "version": "0.1.2",
   "description": "Vue SFC loader of es module in browser",
   "main": "./dist/vue-import.esm-browser.js",
+  "unpkg": "./dist/vue-import.esm-browser.prod.js",
+  "browser": "./dist/vue-import.browser.prod.js",
   "scripts": {
-    "start": "concurrently \"gulp\" \"serve\"",
+    "start": "concurrently \"npm run build\" \"serve\"",
     "test": "jest",
-    "build": "gulp build",
+    "build": "del ./dist && rollup -c rollup.config.mjs",
     "reinstall": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "repository": {
@@ -30,18 +32,15 @@
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-typescript": "^7.21.5",
+    "@rollup/plugin-terser": "^0.4.2",
+    "@rollup/plugin-typescript": "^11.1.1",
     "@types/jest": "^29.5.1",
     "concurrently": "^8.0.1",
-    "del": "^7.0.0",
-    "gulp": "^4.0.2",
-    "gulp-rename": "^2.0.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "gulp-uglify": "^3.0.2",
-    "gulp-util": "^3.0.8",
+    "del-cli": "^5.0.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "lodash": "^4.17.21",
+    "rollup": "^3.22.0",
     "serve": "^14.2.0",
     "vue": "^3.2.47"
   },
