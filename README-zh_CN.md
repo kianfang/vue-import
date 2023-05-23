@@ -5,32 +5,32 @@
 [![Minified Size](https://img.shields.io/bundlephobia/min/vue-import)](https://www.npmjs.com/package/vue-import?file=/dist/vue-import.esm-browser.prod.js)
 [![Build and Publish](https://github.com/kianfang/vue-import/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/kianfang/vue-import/actions/workflows/npm-publish.yml)
 
-English | [简体中文](./README-zh_CN.md)
+[English](./README.md) | 简体中文
 
-Import Vue components in a browser environment，i.e. [SFC](https://vuejs.org/guide/scaling-up/sfc.html) (*.vue) file。  
-If you don't want to maintain `package.json` and apply packaging tools such as `webpack`，then `vue-import` will help you。
+在浏览器环境下导入vue组件，即[SFC](https://vuejs.org/guide/scaling-up/sfc.html) (*.vue) 文件。  
+如果你不想维护`package.json`以及应用 `webpack`等打包工具，那么`vue-import`将能助你一臂之力。
 
 ## [CDN](https://www.jsdelivr.com)
 
-ESM import:
+ESM导入:
 
 ```js
 import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.esm-browser.js';
 ```
 
-Minified:
+压缩版:
 
 ```js
 import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.esm-browser.prod.js';
 ```
 
-OR
+或者
 
 ```js
 import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
 ```
 
-## [Examples](https://unpkg.com/vue-import/example/index.html)
+## [示例](https://unpkg.com/vue-import/example/index.html)
 
 - `index.html`  
 
@@ -66,7 +66,7 @@ import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
 
     const routes = [
       { path: '/', redirect: '/welcome' },
-      // route component import
+      // 路由组件导入
       { 
         path: '/welcome',
         component: await vueImport('./component/welcome.vue'),
@@ -83,7 +83,7 @@ import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
     });
 
     const app = createApp();
-    // custom component import
+    // 自定义组件导入
     app.component('my-component', await vueImport('./component/common.vue'))
 
     app.use(router);
@@ -94,7 +94,7 @@ import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
 ```
 
 - `component/common.vue`  
-Support loading of `<script></script>` default export module
+支持 `<script></script>` 默认导出模块的加载
 
 ```html
 <template>
@@ -134,7 +134,7 @@ nav {
 ```
 
 - `component/home.vue`  
-Load the Home component asynchronously
+异步加载Home组件
 
 ```html
 <template>
@@ -162,7 +162,7 @@ export default {
 ```
 
 - `component/welcome.vue`  
-Support multiple groups of `<style></style>` embedding methods，when the component is uninstalled, the embedded styles will also be uninstalled.
+支持多组 `<style></style>` 嵌入方式，组件卸载时，嵌入的样式也会卸载掉
 
 ```html
 <template>
