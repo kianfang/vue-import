@@ -30,6 +30,44 @@ import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.e
 import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
 ```
 
+## 使用说明
+
+### 基础使用
+
+```js
+import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.prod.js';
+import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.esm-browser.prod.js';
+
+const app = createApp();
+app.component('my-component', await vueImport('./some/component.vue'));
+
+app.mount('#app');
+```
+
+### 重写组件属性
+
+这里使用`Promise`方式，你也可以使用`async/await`的方式
+
+```js
+import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.prod.js';
+import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
+
+const app = createApp();
+
+vueImport('./some/component.vue', {
+  function beforeMount() {
+    console.log('beforeMount');
+  },
+  function mounted() {
+    console.log('mounted');
+  },
+}).then((component) => {
+  app.component('my-component', component);
+
+  app.mount('#app');
+});
+```
+
 ## [示例](https://unpkg.com/vue-import/example/index.html)
 
 - `index.html`  

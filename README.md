@@ -7,8 +7,8 @@
 
 English | [简体中文](./README-zh_CN.md)
 
-Import Vue components in a browser environment，i.e. [SFC](https://vuejs.org/guide/scaling-up/sfc.html) (*.vue) file。  
-If you don't want to maintain `package.json` and apply packaging tools such as `webpack`，then `vue-import` will help you。
+Import Vue components in a browser environment, i.e. [SFC](https://vuejs.org/guide/scaling-up/sfc.html) (*.vue) file.
+If you don't want to maintain `package.json` and apply packaging tools such as `webpack`, then `vue-import` will help you.
 
 ## [CDN](https://www.jsdelivr.com)
 
@@ -28,6 +28,44 @@ OR
 
 ```js
 import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
+```
+
+## Instructions
+
+### Basic Usage
+
+```js
+import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.prod.js';
+import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.esm-browser.prod.js';
+
+const app = createApp();
+app.component('my-component', await vueImport('./some/component.vue'));
+
+app.mount('#app');
+```
+
+### Override Component Props
+
+The `Promise` method is used, and you can also use the `async/await` method.
+
+```js
+import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.prod.js';
+import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
+
+const app = createApp();
+
+vueImport('./some/component.vue', {
+  function beforeMount() {
+    console.log('beforeMount');
+  },
+  function mounted() {
+    console.log('mounted');
+  },
+}).then((component) => {
+  app.component('my-component', component);
+
+  app.mount('#app');
+});
 ```
 
 ## [Examples](https://unpkg.com/vue-import/example/index.html)
