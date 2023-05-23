@@ -1,7 +1,7 @@
 <template>
   <h1 class="title">{{ title }}</h1>
   <p>
-    Welcome component with router
+    Home async component with router
   </p>
 </template>
 

@@ -23,7 +23,7 @@
     <router-view></router-view>
   </div>
   <script type="module">
-    import { createApp } from 'vue';
+    import { createApp, defineAsyncComponent } from 'vue';
     import { createRouter, createWebHashHistory } from 'vue-router';
     import vueImport from 'vue-import';
 
@@ -36,7 +36,7 @@
       },
       { 
         path: '/home',
-        component: await vueImport('./component/home.vue'),
+        component: defineAsyncComponent(() => vueImport('./component/home.vue')),
       },
     ];
 

@@ -52,7 +52,7 @@ import vueImport from 'https://unpkg.com/vue-import/dist/vue-import.esm-browser.
     <router-view></router-view>
   </div>
   <script type="module">
-    import { createApp } from 'vue';
+    import { createApp, defineAsyncComponent } from 'vue';
     import { createRouter, createWebHashHistory } from 'vue-router';
     import vueImport from 'vue-import';
 
@@ -65,7 +65,7 @@ import vueImport from 'https://unpkg.com/vue-import/dist/vue-import.esm-browser.
       },
       { 
         path: '/home',
-        component: await vueImport('./component/home.vue'),
+        component: defineAsyncComponent(() => vueImport('./component/home.vue')),
       },
     ];
 
@@ -125,13 +125,14 @@ nav {
 
 ```
 
-- `component/home.vue`  
+- `component/home.vue`
+异步加载Home组件
 
 ```html
 <template>
   <h1 class="title">{{ title }}</h1>
   <p>
-    Welcome component with router
+    Home async component with router
   </p>
 </template>
 
