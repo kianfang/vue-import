@@ -40,8 +40,9 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lodash": "^4.17.21",
-    "rollup": "^4.4.0",
+    "rollup": "^4.4.1",
     "serve": "^14.2.1",
+    "typescript": "^5.2.2",
     "vue": "^3.3.8"
   },
   "files": [

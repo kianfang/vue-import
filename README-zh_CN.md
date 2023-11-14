@@ -24,12 +24,6 @@ import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.e
 import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.esm-browser.prod.js';
 ```
 
-或者
-
-```js
-import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
-```
-
 ## 使用说明
 
 ### 基础使用
@@ -50,7 +44,7 @@ app.mount('#app');
 
 ```js
 import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.prod.js';
-import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
+import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.esm-browser.prod.js';
 
 const app = createApp();
 

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "typeRoots": ["node_modules/@types", "typings"],
     "module": "ESNext",
-    "target": "esnext",
+    "target": "ESNext",
     "lib": ["ESNext", "DOM"],
     "sourceMap": true,
     "baseUrl": "./src",
@@ -22,13 +22,13 @@
     "declaration": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "strict": true,
+    "strict": true
   },
   "include": [
     "./typings",
     "./src"
   ],
   "exclude": [
-    "./dist",
+    "./dist"
   ]
 }

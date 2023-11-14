@@ -24,12 +24,6 @@ Minified:
 import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.esm-browser.prod.js';
 ```
 
-OR
-
-```js
-import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
-```
-
 ## Instructions
 
 ### Basic Usage
@@ -50,7 +44,7 @@ The `Promise` method is used, and you can also use the `async/await` method.
 
 ```js
 import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.prod.js';
-import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import';
+import vueImport from 'https://cdn.jsdelivr.net/npm/vue-import/dist/vue-import.esm-browser.js';
 
 const app = createApp();
 
