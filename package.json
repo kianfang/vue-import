@@ -1,6 +1,6 @@
 {
   "name": "vue-import",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Vue SFC loader of es module in browser",
   "main": "./dist/vue-import.esm-browser.js",
   "unpkg": "./dist/vue-import.esm-browser.prod.js",
