@@ -10,10 +10,12 @@
 </template>
 
 <script>
+import { getLocaleString } from '../util';
+
 export default {
   data() {
     return {
-      date: new Date().toLocaleString(),
+      date: getLocaleString(),
     }
   },
 }
