@@ -9,6 +9,7 @@ global.fetch = jest.fn().mockImplementation((_url: string) =>
   Promise.resolve({
     text: () => Promise.resolve(sfc),
     json: () => Promise.resolve(data),
+    url: new URL(_url, 'https://a.b.c').href,
   })
 );
 

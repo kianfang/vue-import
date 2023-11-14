@@ -1,4 +1,5 @@
 import { ComponentOptions } from 'vue';
+import resolveModulePath from './resolveModulePath';
 
 /**
  * Vue浏览器端SFC加载器 
@@ -25,7 +26,8 @@ export default async function (url: string, props: ComponentOptions = {}): Promi
   // 1、es module无法从外部js直接获取导出模块
   // 2、import()只支持url导入，这里使用blob url解决
   if (script) {
-    const blob = new Blob([script], { type: 'application/javascript' });
+    const resolvedScript = resolveModulePath(script, new URL(res.url));
+    const blob = new Blob([resolvedScript], { type: 'application/javascript' });
     const blobUrl = URL.createObjectURL(blob); 
     const importModule = await import(blobUrl);
     sfcProps = importModule.default;
