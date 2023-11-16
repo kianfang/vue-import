@@ -29,7 +29,7 @@ export default function (script: string, option: {
   base: URL,
   polyfill?: boolean,
 }): string {
-  const { base, polyfill } = option;
+  const { base, polyfill = true } = option;
   const isSpecialPath = (path: string) => ['./', '../', '/'].some((prefix) => path.startsWith(prefix));
   const result = script.replace(reg, (match: string, path: string) => {
     if (isSpecialPath(path)) {
