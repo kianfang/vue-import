@@ -11,7 +11,7 @@
       <code>import.meta.resolve('vue-import')</code>: <b>{{ module }}</b>
     </p>
     <p>
-      <code>await import('../util').getYear()</code>: <b>{{ importYear }}</b>
+      <code>(await import('../util')).getYear()</code>: <b>{{ importYear }}</b>
     </p>
   </div>
 </template>

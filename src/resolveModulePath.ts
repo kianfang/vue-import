@@ -6,14 +6,37 @@
  * const some = await import('./module')
  */
 const reg = /import(?:(?:[\w*{},\s]+from\s+)|(?:\())['"](.*)['"]/g;
-const defaultExtension = (file: string) => {
-  if (/\/$/.test(file)) {
-    return `${file}index.js`;
-  }
-  if (!/\.(\w+)$/.test(file)) {
-    return `${file}.js`;
-  }
+/**
+ * isSpecialPath
+ * 
+ * eg: 
+ * '/some/path'
+ * './some/path'
+ * '../some/path'
+ * 
+ * @param {string} path 
+ * @returns {boolean}
+ */
+const isSpecialPath = (path: string): boolean => /^(\.{1,2})?\//.test(path);
+/**
+ * defaultExtension
+ * 
+ * eg: 
+ * '/some/path' => '/some/path.js'
+ * '/some/path/' => '/some/path/index.js'
+ * 
+ * @param {string} file 
+ * @returns {string}
+ */
+const defaultExtension = (file: string): string => {
+  if (/\/$/.test(file)) return `${file}index.js`;
+  if (!/\.(\w+)$/.test(file)) return `${file}.js`;
   return file;
+}
+
+interface Option {
+  base: URL,
+  polyfill?: boolean,
 }
 
 /**
@@ -22,15 +45,11 @@ const defaultExtension = (file: string) => {
  * @date 2023-11-14
  * 
  * @param {string} script
- * @param {URL} baseUrl
+ * @param {Option} option
  * @returns {string}
  */
-export default function (script: string, option: {
-  base: URL,
-  polyfill?: boolean,
-}): string {
+export default function (script: string, option: Option): string {
   const { base, polyfill = true } = option;
-  const isSpecialPath = (path: string) => ['./', '../', '/'].some((prefix) => path.startsWith(prefix));
   const result = script.replace(reg, (match: string, path: string) => {
     if (isSpecialPath(path)) {
       const url = new URL(path, base)
