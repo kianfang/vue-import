@@ -25,11 +25,15 @@ const defaultExtension = (file: string) => {
  * @param {URL} baseUrl
  * @returns {string}
  */
-export default function (script: string, baseUrl: URL): string {
+export default function (script: string, option: {
+  base: URL,
+  polyfill?: boolean,
+}): string {
+  const { base, polyfill } = option;
   const isSpecialPath = (path: string) => ['./', '../', '/'].some((prefix) => path.startsWith(prefix));
   const result = script.replace(reg, (match: string, path: string) => {
     if (isSpecialPath(path)) {
-      const url = new URL(path, baseUrl)
+      const url = new URL(path, base)
 
       return match.replace(path, defaultExtension(url.href))
     }
@@ -37,13 +41,16 @@ export default function (script: string, baseUrl: URL): string {
     return match;
   });
 
-  // polyfill import.meta.url and import.meta.resolve
-  const meta = 'import.meta';
-  const polyfill = [
-    `${meta}.url='${baseUrl.href}';`,
-    `${meta}._resolve=${meta}.resolve;`,
-    `${meta}.resolve=function(m){return (${isSpecialPath.toString()})(m)?(${defaultExtension.toString()})(new URL(m, this.url).href):this._resolve(m)}`,
-  ].join('\n');
+  if (polyfill) {
+    // polyfill import.meta.url and import.meta.resolve
+    const meta = 'import.meta';
+    const prefix = [
+      `${meta}.url='${base.href}';`,
+      `${meta}._resolve=${meta}.resolve;`,
+      `${meta}.resolve=function(m){return (${isSpecialPath.toString()})(m)?(${defaultExtension.toString()})(new URL(m, this.url).href):this._resolve(m)}`,
+    ].join('\n');
+    return `${prefix}${result}`;
+  }
 
-  return `${polyfill}${result}`;
+  return result;
 }
