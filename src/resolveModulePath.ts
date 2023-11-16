@@ -1,4 +1,20 @@
-const reg = /import[\w*{},\s]+from\s+(?:(?:['"](.*)['"]))/g;
+/**
+ * match module import
+ * 
+ * eg: 
+ * import { some } from './module';
+ * const some = await import('./module')
+ */
+const reg = /import(?:(?:[\w*{},\s]+from\s+)|(?:\())['"](.*)['"]/g;
+const defaultExtension = (file: string) => {
+  if (/\/$/.test(file)) {
+    return `${file}index.js`;
+  }
+  if (!/\.(\w+)$/.test(file)) {
+    return `${file}.js`;
+  }
+  return file;
+}
 
 /**
  * 解析script中的es module导入路径
@@ -10,8 +26,9 @@ const reg = /import[\w*{},\s]+from\s+(?:(?:['"](.*)['"]))/g;
  * @returns {string}
  */
 export default function (script: string, baseUrl: URL): string {
+  const isSpecialPath = (path: string) => ['./', '../', '/'].some((prefix) => path.startsWith(prefix));
   const result = script.replace(reg, (match: string, path: string) => {
-    if (['./', '../', '/'].some((prefix) => path.startsWith(prefix))) {
+    if (isSpecialPath(path)) {
       const url = new URL(path, baseUrl)
 
       return match.replace(path, defaultExtension(url.href))
@@ -20,15 +37,13 @@ export default function (script: string, baseUrl: URL): string {
     return match;
   });
 
-  return result;
-}
+  // polyfill import.meta.url and import.meta.resolve
+  const meta = 'import.meta';
+  const polyfill = [
+    `${meta}.url='${baseUrl.href}';`,
+    `${meta}._resolve=${meta}.resolve;`,
+    `${meta}.resolve=function(m){return (${isSpecialPath.toString()})(m)?(${defaultExtension.toString()})(new URL(m, this.url).href):this._resolve(m)}`,
+  ].join('\n');
 
-function defaultExtension(file: string) {
-  if (/\/$/.test(file)) {
-    return `${file}index.js`;
-  } else if (!/\.(\w+)$/.test(file)) {
-    return `${file}.js`;
-  }
-
-  return file;
+  return `${polyfill}${result}`;
 }

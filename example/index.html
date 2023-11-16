@@ -38,6 +38,10 @@
         path: '/home',
         component: defineAsyncComponent(() => vueImport('./component/home.vue')),
       },
+      {
+        path: '/import',
+        component: defineAsyncComponent(() => vueImport('./component/import.vue')),
+      }
     ];
 
     const router = createRouter({

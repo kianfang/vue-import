@@ -4,6 +4,7 @@
     <nav>
       <router-link to="/home">Home</router-link>
       <router-link to="/welcome">Welcome</router-link>
+      <router-link to="/import">Import</router-link>
       <a href="https://github.com/kianfang/vue-import#readme">About</a>
     </nav>
   </div>
